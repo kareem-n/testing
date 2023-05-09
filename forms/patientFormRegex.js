@@ -5,7 +5,7 @@ let adultFormInputs = Array.from(document.querySelectorAll(".adultForm input"));
 let FormErrorsMSG = [];
 
 adultSubmitBtn.addEventListener("click", function (e) {
-  e.preventDefault();
+  //   e.preventDefault();
   FormErrorsMSG = [];
 
   let onlyStringRegex = /^[a-zA-Z]+$/;
@@ -55,55 +55,61 @@ adultSubmitBtn.addEventListener("click", function (e) {
   }
 });
 
-let notAdultSubmitBtn = document.querySelector("#notAdultSubmitBtn") ;
-let notAdultFormInputs = Array.from(document.querySelectorAll(".notAdultForm input"));
+let notAdultSubmitBtn = document.querySelector("#notAdultSubmitBtn");
+let notAdultFormInputs = Array.from(
+  document.querySelectorAll(".notAdultForm input")
+);
 let notAdultError = document.querySelector(".notAdultError");
 
 notAdultSubmitBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    FormErrorsMSG = [];
+  e.preventDefault();
+  FormErrorsMSG = [];
 
-  
-    let onlyStringRegex = /^[a-zA-Z]+$/;
-    let emptyRegex = /^$/;
-    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-    for (let i = 0; i < notAdultFormInputs.length; i++) {
-      if (emptyRegex.test(notAdultFormInputs[i].value)) {
-        FormErrorsMSG.push("All fields should be filled");
-        break;
-      } else {
-        // first name
-        if (notAdultFormInputs[i].name == "fName") {
-          if (!onlyStringRegex.test(notAdultFormInputs[i].value)) {
-            FormErrorsMSG.push("First name not valid");
-          }
-        }
-        // last name
-        if (notAdultFormInputs[i].name == "lName") {
-          if (!onlyStringRegex.test(notAdultFormInputs[i].value)) {
-            FormErrorsMSG.push("Last name not valid");
-          }
-        }
-  
-        if (notAdultFormInputs[i].name == "email") {
-          if (!emailRegex.test(notAdultFormInputs[i].value)) {
-            FormErrorsMSG.push("Email not valid");
-          }
-        }
-      }
-    }
-  
-    if (FormErrorsMSG.length > 0) {
-      let tmp = ``;
-      for (let i = 0; i < FormErrorsMSG.length; i++) {
-        tmp += `<p class="m-0">- ${FormErrorsMSG[i]}</p>`;
-      }
-  
-      notAdultError.innerHTML = tmp;
-      notAdultError.classList.remove("d-none");
+  let onlyStringRegex = /^[a-zA-Z]+$/;
+  let emptyRegex = /^$/;
+  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  for (let i = 0; i < notAdultFormInputs.length; i++) {
+    if (emptyRegex.test(notAdultFormInputs[i].value)) {
+      FormErrorsMSG.push("All fields should be filled");
+      break;
     } else {
-      notAdultError.classList.add("d-none");
-    }
-  });
+      // first name
+      if (notAdultFormInputs[i].name == "fName") {
+        if (!onlyStringRegex.test(notAdultFormInputs[i].value)) {
+          FormErrorsMSG.push("First name not valid");
+        }
+      }
+      // last name
+      if (notAdultFormInputs[i].name == "lName") {
+        if (!onlyStringRegex.test(notAdultFormInputs[i].value)) {
+          FormErrorsMSG.push("Last name not valid");
+        }
+      }
 
+      if (notAdultFormInputs[i].name == "email") {
+        if (!emailRegex.test(notAdultFormInputs[i].value)) {
+          FormErrorsMSG.push("Email not valid");
+        }
+      }
+    }
+  }
+
+  if (FormErrorsMSG.length > 0) {
+    let tmp = ``;
+    for (let i = 0; i < FormErrorsMSG.length; i++) {
+      tmp += `<p class="m-0">- ${FormErrorsMSG[i]}</p>`;
+    }
+
+    notAdultError.innerHTML = tmp;
+    notAdultError.classList.remove("d-none");
+  } else {
+    notAdultError.classList.add("d-none");
+    for (let i = 0; i < notAdultFormInputs.length; i++) {
+      console.log(notAdultFormInputs[i].name);
+      let tmp = `` ;
+      
+    }
+    // window.location.href = `handle.php?fName=kareem`;
+  }
+});

@@ -43,7 +43,7 @@
                 <div class="form-container mt-3">
 
                     <!-- form for adult patient -->
-                    <form class="adultForm" action="">
+                    <form class="adultForm" action="handle.php" method="GET">
                         <div class="adultError d-none alert alert-danger"></div>
                         <input style="width: 300px;" required type="text" class="form-control" name="fName" placeholder="First name">
                         <input style="width: 300px;" required type="text" class="form-control my-3" name="lName" placeholder="Last name">
@@ -56,7 +56,7 @@
                     </form>
 
                     <!-- form for not adult patient (display non until user select not adult) -->
-                    <form class="notAdultForm d-none" action="">
+                    <form class="notAdultForm d-none">
                         <div class="notAdultError alert d-none alert-danger"></div>
                         <input style="width: 300px;" type="text" class="form-control" name="fName" placeholder="First name">
                         <input style="width: 300px;" type="text" class="form-control my-3" name="lName" placeholder="Last name">
